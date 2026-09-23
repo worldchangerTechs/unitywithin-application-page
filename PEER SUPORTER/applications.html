@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Unity Within — Get Involved</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --pink:#D6127D; --pink-deep:#A80F63; --black:#F5DFE1; --panel:#EDD1D5;
+    --white:#FFFFFF; --ink:#231A1C; --soft:#FBE4F0; --gray:#6E585D; --line:#E0BCC2;
+    color-scheme: light;
+  }
+  :root:not([data-theme="light"]){ }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth; scroll-padding-top:env(safe-area-inset-top,0px);}
+  body{
+    margin:0; background:var(--black); color:var(--ink);
+    font-family:'Space Grotesk',system-ui,sans-serif;
+    padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+    overflow-x:hidden;
+  }
+  .mono{font-family:'JetBrains Mono',monospace;}
+  a{color:inherit;}
+  .wrap{max-width:1100px; margin:0 auto; padding:0 24px;}
+  img{max-width:100%;}
+
+  /* NAV */
+  nav{position:sticky; top:0; z-index:10; background:rgba(245,223,225,.9); backdrop-filter:blur(8px); border-bottom:1px solid var(--line);}
+  nav .wrap{display:flex; align-items:center; justify-content:space-between; height:64px;}
+  .brand{display:flex; align-items:center; gap:10px; font-weight:700; font-size:15px; letter-spacing:.02em;}
+  .brand img{width:32px; height:32px; border-radius:8px;}
+  .brand span b{color:var(--pink);}
+  .navcta{background:var(--pink); color:var(--white); padding:9px 16px; border-radius:8px; font-size:13px; font-weight:500; text-decoration:none;}
+
+  /* HERO */
+  .hero{padding:64px 0 48px; border-bottom:1px solid var(--line);}
+  .eyebrow{font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--pink); letter-spacing:.08em; margin-bottom:18px;}
+  h1{font-size:clamp(36px,6vw,64px); line-height:1.05; margin:0 0 20px; font-weight:700; max-width:820px;}
+  h1 em{color:var(--pink); font-style:normal;}
+  .lede{font-size:18px; color:#6B4F53; max-width:560px; line-height:1.5; margin:0 0 32px;}
+  .cta-row{display:flex; gap:14px; flex-wrap:wrap; margin-bottom:44px;}
+  .btn{display:inline-block; padding:14px 24px; border-radius:10px; font-weight:500; font-size:15px; text-decoration:none; transition:transform .15s ease, background .15s ease;}
+  .btn:hover{transform:translateY(-2px);}
+  .btn-fill{background:var(--pink); color:var(--white);}
+  .btn-fill:hover{background:var(--pink-deep);}
+  .btn-line{background:transparent; color:var(--ink); border:1px solid var(--ink);}
+  .btn-line:hover{border-color:var(--pink); color:var(--pink);}
+  .meta-row{display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--line); border:1px solid var(--line); border-radius:12px; overflow:hidden;}
+  .meta-cell{background:var(--panel); padding:16px 18px;}
+  .meta-cell .k{font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--gray); letter-spacing:.05em; margin-bottom:6px;}
+  .meta-cell .v{font-size:14px; font-weight:500;}
+
+  /* SECTION shell */
+  section{padding:64px 0; border-bottom:1px solid var(--line);}
+  .num{font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--pink); letter-spacing:.08em; margin-bottom:14px;}
+  h2{font-size:clamp(26px,4vw,38px); font-weight:700; margin:0 0 16px; max-width:640px; line-height:1.15;}
+  .sub{color:var(--gray); font-size:15px; max-width:520px; line-height:1.55; margin-bottom:36px;}
+
+  /* stat */
+  .stat-card{background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:32px; display:flex; align-items:baseline; gap:18px; flex-wrap:wrap;}
+  .stat-num{font-size:56px; font-weight:700; color:var(--pink); line-height:1;}
+  .stat-txt{color:#6B4F53; font-size:15px; max-width:420px;}
+
+  /* numbered list (real sequence: how it works) */
+  .steps{display:grid; grid-template-columns:repeat(4,1fr); gap:20px;}
+  .step{border-top:1px solid var(--line); padding-top:16px;}
+  .step .n{font-family:'JetBrains Mono',monospace; color:var(--pink); font-size:13px; margin-bottom:10px;}
+  .step h3{font-size:16px; margin:0 0 8px;}
+  .step p{font-size:13.5px; color:var(--gray); line-height:1.5; margin:0;}
+
+  /* apply panels */
+  .apply-grid{display:grid; grid-template-columns:1fr 1fr; gap:24px;}
+  .apply-card{background:var(--panel); border:1px solid var(--line); border-radius:16px; padding:36px;}
+  .apply-card.pink{background:linear-gradient(155deg,var(--pink) 0%, var(--pink-deep) 100%); border:none;}
+  .apply-card h3{font-size:22px; margin:0 0 12px; color:var(--ink);}
+  .apply-card.pink h3{color:var(--white);}
+  .apply-card p{color:#4A363A; font-size:14.5px; line-height:1.6; margin:0 0 24px;}
+  .apply-card.pink p{color:#FCE3F0;}
+  .apply-card ul{margin:0 0 24px; padding-left:18px; color:#4A363A; font-size:14px; line-height:1.8;}
+  .apply-card.pink ul{color:#FCE3F0;}
+
+  /* faq */
+  .faq-item{border-bottom:1px solid var(--line);}
+  .faq-q{width:100%; text-align:left; background:none; border:none; color:var(--ink); font-family:inherit; font-size:16px; font-weight:500; padding:20px 0; cursor:pointer; display:flex; justify-content:space-between; align-items:center; gap:12px;}
+  .faq-q .plus{color:var(--pink); font-size:20px; transition:transform .2s ease; flex-shrink:0;}
+  .faq-item.open .plus{transform:rotate(45deg);}
+  .faq-a{max-height:0; overflow:hidden; transition:max-height .25s ease;}
+  .faq-a p{color:var(--gray); font-size:14.5px; line-height:1.6; margin:0 0 20px; max-width:640px;}
+
+  footer{padding:40px 0; }
+  .foot-row{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;}
+  .foot-brand{display:flex; align-items:center; gap:10px;}
+  .foot-brand img{width:28px; height:28px; border-radius:6px;}
+  .foot-mono{font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--gray); letter-spacing:.05em;}
+
+  @media(max-width:760px){
+    .meta-row{grid-template-columns:repeat(2,1fr);}
+    .steps{grid-template-columns:repeat(2,1fr);}
+    .apply-grid{grid-template-columns:1fr;}
+  }
+  @media(prefers-reduced-motion:reduce){ *{transition:none!important;} }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="brand">
+      <span>UNITY <b>WITHIN</b></span>
+    </div>
+    <a class="navcta" href="#apply">Apply</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">UNITY WITHIN // PEER SUPPORT MOVEMENT</div>
+    <h1>Strong minds.<br><em>Unified</em> hearts.</h1>
+    <p class="lede">A student-led peer-support movement helping young people be heard, supported, and safely connected to real help when it matters.</p>
+    <div class="cta-row">
+      <a class="btn btn-fill" href="#apply-supporter">Apply as a Peer Supporter</a>
+      <a class="btn btn-line" href="#apply-trainer">Apply as a Trainer</a>
+    </div>
+    <div class="meta-row">
+      <div class="meta-cell"><div class="k">BASE</div><div class="v">Kisii University</div></div>
+      <div class="meta-cell"><div class="k">FORMAT</div><div class="v">Online + in person</div></div>
+      <div class="meta-cell"><div class="k">TRAINING</div><div class="v">Google Meet sessions</div></div>
+      <div class="meta-cell"><div class="k">LEVEL</div><div class="v">No experience needed</div></div>
+    </div>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <div class="num">01 / THE PROBLEM</div>
+    <h2>Too many young people carry a lot, quietly.</h2>
+    <p class="sub">Anxiety, stress, loneliness and pressure follow students everywhere — and most never say it out loud. Schools rarely have enough hands to reach everyone in time.</p>
+    <div class="stat-card">
+      <div class="stat-num">4/10</div>
+      <div class="stat-txt">university students in Kenya report symptoms of depression or anxiety, while the country has fewer than 120 psychiatrists in total.</div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="num">02 / HOW IT WORKS</div>
+    <h2>From applying to actually helping.</h2>
+    <p class="sub">A simple, supervised path — nobody is thrown in without support.</p>
+    <div class="steps">
+      <div class="step"><div class="n">01</div><h3>Apply</h3><p>Fill in the short form below and tell us a bit about you.</p></div>
+      <div class="step"><div class="n">02</div><h3>Chat</h3><p>A short, friendly conversation — no pressure, just getting to know you.</p></div>
+      <div class="step"><div class="n">03</div><h3>Train</h3><p>Join our Google Meet sessions to learn how to listen, support, and know when to escalate.</p></div>
+      <div class="step"><div class="n">04</div><h3>Support</h3><p>Start showing up for your peers, with the team behind you the whole way.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="apply">
+  <div class="wrap">
+    <div class="num">03 / GET INVOLVED</div>
+    <h2>Two ways to be part of this.</h2>
+    <p class="sub">Whichever one fits you — we'd love to hear from you.</p>
+    <div class="apply-grid">
+      <div class="apply-card pink" id="apply-supporter">
+        <h3>Peer Supporter</h3>
+        <p>Be trained to listen, support your fellow students, and gently guide anyone who needs more than a friend to talk to toward real help.</p>
+        <ul>
+          <li>No experience required</li>
+          <li>Free training, done live over Google Meet</li>
+          <li>Be part of the founding team</li>
+        </ul>
+        <a class="btn" style="background:var(--white); color:var(--pink-deep);" href="https://form.jotform.com/262625356038055" target="_blank" rel="noopener">Apply as a Peer Supporter</a>
+      </div>
+      <div class="apply-card" id="apply-trainer">
+        <h3>Trainer / Guide</h3>
+        <p>Bring your experience — counseling, psychology, mentorship, communication — and help us build safe, sound training for our peer supporters.</p>
+        <ul>
+          <li>Shape our safety and training standards</li>
+          <li>Flexible time commitment</li>
+          <li>Real, founding-level impact</li>
+        </ul>
+        <a class="btn btn-fill" href="https://form.jotform.com/262656305129054" target="_blank" rel="noopener">Apply as a Trainer</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="num">04 / FAQ</div>
+    <h2>Before you apply.</h2>
+    <div class="faq">
+      <div class="faq-item">
+        <button class="faq-q">Do I need experience? <span class="plus">+</span></button>
+        <div class="faq-a"><p>No. We train every peer supporter from scratch — all we ask is that you're willing to listen and show up.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">How much time does this take? <span class="plus">+</span></button>
+        <div class="faq-a"><p>Training happens in short Google Meet sessions. After that, it's as much time as you can genuinely give — we'd rather have you for a little, consistently, than a lot, briefly.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Is this a paid role? <span class="plus">+</span></button>
+        <div class="faq-a"><p>Not right now — we're an early, student-led movement. What you get instead is real impact, a founding seat at the table, and a growing community.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Who's behind Unity Within? <span class="plus">+</span></button>
+        <div class="faq-a"><p>Unity Within is founded and coordinated by a Millennium Fellow (Cohort 2026) and IT student at Kisii University, working with trained peers and guided by experienced partners.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-row">
+    <div class="foot-brand mono">UNITY WITHIN // MILLENNIUM FELLOWSHIP 2026</div>
+    <div class="foot-mono">Tipape Matayo, Founder · +254 715 765 561 · <a href="terms.html" target="_blank" rel="noopener" style="color:var(--pink); text-decoration:underline;">Terms &amp; Conditions</a></div>
+  </div>
+</footer>
+
+<script>
+document.querySelectorAll('.faq-item').forEach(item=>{
+  const q = item.querySelector('.faq-q');
+  const a = item.querySelector('.faq-a');
+  q.addEventListener('click', ()=>{
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(o=>{o.classList.remove('open'); o.querySelector('.faq-a').style.maxHeight=null;});
+    if(!isOpen){ item.classList.add('open'); a.style.maxHeight = a.scrollHeight+40+'px'; }
+  });
+});
+</script>
+</body>
+</html>
